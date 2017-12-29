@@ -161,7 +161,7 @@ Here is an example of my result on a test image:
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video_out.mp4)
+Here's a [link to my video result](./project_output.mp4)
 
 ---
 
@@ -186,8 +186,10 @@ For the lane width in destination, it doesn't matter much for straight lines, bu
 
 Since the binary image and perspective transform are not perfect, the input to line fitting have some noise, which cause some bad fittings. 
 
-To identify bad fittings, I tried with curvature / difference of fitting parameters, which I couldn't make it work well. It's kinds of difficult to get a good threshold to measure the difference. So in the end I choose a much simple algorithm discussed earlier. But it's still have some issues. 
+To identify bad fittings, I tried with curvature / difference of fitting parameters, which I couldn't make it work well. It's kinds of difficult to get a good threshold to measure the difference. So in the end I choose a much simple algorithm discussed earlier. But it's still have some issues.  
 
 For the moving average of fitting parameters, if we use too much previous information, then during curvature it performs bad because the line actually changes a lot. But if we mainly rely on current fit, it again becomes not smooth. So again this is another parameter need more trial. 
+
+Beause of all the issues above, in the project video, at the end of the second curve, the right line fitting is not good. 
 
  
